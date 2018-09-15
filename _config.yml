@@ -56,7 +56,7 @@ footer-link-col: "#404040"
 # instead of colour
 
  navbar-img: "/img/path.jpg"
- footer-img: "/img/avatar-icon.png"
+ footer-img: "/img/foot.png"
  #page-img: "/img/bgimage.png"
 
 # --- Footer options --- #
@@ -124,7 +124,7 @@ share-links-active:
 # --- Comments --- #
 
 # Fill in your Disqus shortname (NOT the userid) if you want to support Disqus comments
-# disqus: "vasubandaru-github-io."
+disqus: "vasubandaru-github-io."
 
 # To use Facebook Comments, fill in a Facebook App ID
 # fb_comment_id: ""
