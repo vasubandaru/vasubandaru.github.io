@@ -4,7 +4,7 @@
 # baseurl is the website's URL without the hostname
 
 # If you are building a simple GitHub user page (http://username.github.io) then use these settings:
-url: "http://vasubandaru1.github.io"
+url: "http://vasubandaru.github.io"
 baseurl: ""
 
 # If you are building a GitHub project page then use these settings:
@@ -64,7 +64,7 @@ footer-link-col: "#404040"
 # Change all these values or delete the ones you don't want.
 # Important: you must keep the "name" parameter, everything else you can remove
 author:
-  name: Some Person
+  name: Vasu Bandaru
 
 # Select your active Social Network Links.
 # Uncomment the links you want to show in the footer and add your information to each link.
@@ -75,7 +75,7 @@ social-network-links:
   email: "vasumani.bandaru@gmail.com"
 # facebook: daattali
   github: vasubandaru
-  twitter: engvasu
+  twitter: va_bandaru
 #  reddit: yourname
 #  google-plus: +DeanAttali
   linkedin: vasubandaru
@@ -92,7 +92,7 @@ social-network-links:
 
 # Select which share links to show in posts
 share-links-active:
-  twitter: false
+  twitter: true
   facebook: false
   google: false
   linkedin: true
