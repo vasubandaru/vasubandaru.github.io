@@ -4,7 +4,7 @@ title: Learn or Refresh Python in 10 minutes for Data scientists
 subtitle: I wanted to help you get started working with Python on real data as quickly as possible. That is what this page is about.
 gh-repo: vasubandaru/vasubandaru.github.io
 gh-badge: [star, fork, follow]
-tags: [Pyton] [DataScience] [DataScientist]
+tags: [Pyton]
 ---
 
 # Learn or Refresh Python in 10 minutes for Data scientists
