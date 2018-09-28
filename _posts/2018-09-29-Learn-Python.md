@@ -6,7 +6,7 @@ gh-repo: vasubandaru/vasubandaru.github.io
 gh-badge: [star, fork, follow]
 tags: [Python]
 ---
-![Buran Ghati,India](/blog1.png)
+![Buran Ghati,India](https://github.com/vasubandaru/vasubandaru.github.io/blob/master/img/blog1.png)
 
 
 This article list downs the things that you would need most frequently while working exploring and manipulating datasets. It will be easy, if you've already taken a basic course on Python. Don't worry you can start for now without any experience.
