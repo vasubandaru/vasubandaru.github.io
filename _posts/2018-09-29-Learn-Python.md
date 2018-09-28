@@ -4,9 +4,10 @@ title: Learn Python in 10 minutes for Data scientists
 subtitle: This blog will  help you  start working on data using Python as quickly as possible. It is also useful for a quick refresh
 gh-repo: vasubandaru/vasubandaru.github.io
 gh-badge: [star, fork, follow]
-tags: [Pyton]
+tags: [Python]
 ---
-![Buran Ghati,India](https://github.com/vasubandaru/vasubandaru.github.io/tree/master/img/blog1.png)
+![Buran Ghati,India](img/blog1.png)
+
 
 This article list downs the things that you would need most frequently while working exploring and manipulating datasets. It will be easy, if you've already taken a basic course on Python. Don't worry you can start for now without any experience.
 
