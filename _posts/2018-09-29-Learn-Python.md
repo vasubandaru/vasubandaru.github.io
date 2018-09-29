@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Learn Python in 10 minutes for Data scientists
+title: Learn Python in 30 minutes for Data scientists - Part 1
 subtitle: This blog will  help you  start working on data using Python as quickly as possible. It is also useful for a quick refresh
 gh-repo: vasubandaru/vasubandaru.github.io
 gh-badge: [star, fork, follow]
 tags: [Python]
 ---
 
-This article list downs the things that you would need most frequently while working exploring and manipulating datasets. It will be easy, if you've already taken a basic course on Python. Don't worry you can start for now without any experience.
+This article is like a crash course, that list downs the things that you would need most frequently while working exploring and manipulating datasets. It will be easy, if you've already taken a basic course on Python. Don't worry you can start for now without any experience.
 
 ## Let's start
 
@@ -48,9 +48,11 @@ import pandas as pd
 import numpy as np
 ```
 
+<br/>
+
 ### Read data and explore
 
-To read a csv file we will be using, read_csv from pandas. This we give us a dataframe.
+To read a csv file we will be using, read_csv from pandas. This we give us a data frame.
 
 ```python
 df = pd.read_csv('http://winterolympicsmedals.com/medals.csv')
@@ -67,9 +69,7 @@ df.shape #(Rows,Columns)
 (2311, 8)
 ```
 
-Returns a tuple of number of rows and columns. (Ha.. Tuple another data type)
-
-<br/>
+Returns a tuple with number of rows and columns. (Ha.. Tuple another data type)
 
 <br/>
 
@@ -84,9 +84,7 @@ Index(['Year', 'City', 'Sport', 'Discipline', 'NOC', 'Event', 'Event gender',
       dtype='object')
 ```
 
-Returns an array with column names
-
-<br/>
+Returns an index with column names
 
 <br/>
 
@@ -260,11 +258,7 @@ df.head(2)
 
 <br/>
 
-<br/>
-
 Tip : Use tail() to get last rows, head(-n) to get (#rows - n) observations 
-
-<br/>
 
 <br/>
 
@@ -340,8 +334,6 @@ df.describe()
 
 <br/>
 
-<br/>
-
 **One Shot**
 
 > shape  
@@ -349,8 +341,6 @@ df.describe()
 > head()  
 > tail()  
 > describe() 
-
-<br/>
 
 <br/>
 
@@ -389,7 +379,7 @@ Name: 0, dtype: object
 
 
 
-This returns a single row as a Series(?)
+This returns a single row as a Series(?)  
 When you want multiple rows, you specify the required position as a list(?) or range. How?
 
 ```python
@@ -637,7 +627,7 @@ df['Year'] #Single Column
 df[['Year','Sport']] #Multiple Columns
 ```
 
-When we want a combination numbe subsetting for rows and names for column, One way is
+When we want a combination of  rows and column names , One way is
 
 ```python
 df.iloc[0:3][['Year','Sport']] # OR df[['Year','Sport']].iloc[0:3] (potayto, potahto...)
@@ -783,8 +773,6 @@ df.index #Row names
 
 ```
 RangeIndex(start=0, stop=2311, step=1)
-
-
 ```
 
 
@@ -815,8 +803,6 @@ df1.index
 
 ```
 RangeIndex(start=0, stop=5, step=1)
-
-
 ```
 
 <br/>
@@ -1050,3 +1036,255 @@ As we can see in the output, it is subsetting the data till it finds the corresp
 > ```df.loc[,'Year':'Sport']```  			  Consecutive Columns  
 >
 > ``` df.iloc[0:3][['Year','Sport']]```	   Rows and columns
+
+
+
+Till now we've done the subsetting using index and names. Now let's see how to do conditional subsetting.
+
+From our data, we will subset the data with City _Chamonix_
+
+```python
+df_sub = df[df['City']=='Chamonix']
+df_sub.head()
+```
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+```
+.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+
+
+```
+
+</style>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>City</th>
+      <th>Sport</th>
+      <th>Discipline</th>
+      <th>NOC</th>
+      <th>Event</th>
+      <th>Event gender</th>
+      <th>Medal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1924</td>
+      <td>Chamonix</td>
+      <td>Skating</td>
+      <td>Figure skating</td>
+      <td>AUT</td>
+      <td>individual</td>
+      <td>M</td>
+      <td>Silver</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1924</td>
+      <td>Chamonix</td>
+      <td>Skating</td>
+      <td>Figure skating</td>
+      <td>AUT</td>
+      <td>individual</td>
+      <td>W</td>
+      <td>Gold</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1924</td>
+      <td>Chamonix</td>
+      <td>Skating</td>
+      <td>Figure skating</td>
+      <td>AUT</td>
+      <td>pairs</td>
+      <td>X</td>
+      <td>Gold</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1924</td>
+      <td>Chamonix</td>
+      <td>Bobsleigh</td>
+      <td>Bobsleigh</td>
+      <td>BEL</td>
+      <td>four-man</td>
+      <td>M</td>
+      <td>Bronze</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1924</td>
+      <td>Chamonix</td>
+      <td>Ice Hockey</td>
+      <td>Ice Hockey</td>
+      <td>CAN</td>
+      <td>ice hockey</td>
+      <td>M</td>
+      <td>Gold</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+If you want to choose specific columns from this data, you can either do like this
+
+```python
+df_sub = df[df['City']=='Chamonix'][['Year','Sport']]
+df_sub.head()
+```
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+```
+.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+
+
+```
+
+</style>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>Sport</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1924</td>
+      <td>Skating</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1924</td>
+      <td>Skating</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1924</td>
+      <td>Skating</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1924</td>
+      <td>Bobsleigh</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1924</td>
+      <td>Ice Hockey</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+**OR** like this
+
+```python
+df_sub = df.loc[df['City']=='Chamonix',['Year','Sport']]
+df_sub.head()
+```
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+```
+.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+
+
+```
+
+</style>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>Sport</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1924</td>
+      <td>Skating</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1924</td>
+      <td>Skating</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1924</td>
+      <td>Skating</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1924</td>
+      <td>Bobsleigh</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1924</td>
+      <td>Ice Hockey</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+I think you got the gist of subsetting .
