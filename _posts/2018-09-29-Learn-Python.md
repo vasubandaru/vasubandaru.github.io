@@ -19,7 +19,9 @@ We'll be using Python 3 in this article.
 After installing, fire up your Spyder(IDE) or Jupyter(notebook) to start coding
 
 ### Libraries
+
 Apart from basic operations, you would need libraries for most of the functions like reading data, summarizing etc. . The most frequently used libraries in data science are
+
 > Numpy  
 > Pandas  
 > Scipy  
@@ -38,13 +40,16 @@ sudo pip install pandas
 #From Jupyter
 !pip install pandas
 ```
+
 You need to import these libraries before you use them
 
 ```python
 import pandas as pd
 import numpy as np
 ```
+
 ### Read data and explore
+
 To read a csv file we will be using, read_csv from pandas. This we give us a dataframe.
 
 ```python
@@ -54,6 +59,7 @@ df = pd.read_csv('http://winterolympicsmedals.com/medals.csv')
 Let's look at the data we've just read. It's shape,columns, head etc.
 
 ```python
+#Table shape
 df.shape #(Rows,Columns)
 ```
 
@@ -63,9 +69,12 @@ df.shape #(Rows,Columns)
 
 Returns a tuple of number of rows and columns. (Ha.. Tuple another data type)
 
+<br/>
 
+<br/>
 
 ```python
+#Column names
 df.columns
 ```
 
@@ -75,9 +84,13 @@ Index(['Year', 'City', 'Sport', 'Discipline', 'NOC', 'Event', 'Event gender',
       dtype='object')
 ```
 
-Returns array with column names
+Returns an array with column names
 
+<br/>
 
+<br/>
+
+Let's print your data, but not all of it
 
 ```python
 df.head()
@@ -176,7 +189,9 @@ df.head()
 
 </div>
 
+<br/>
 
+If you want to choose how many you rows you want to see
 
 ```python
 #Specify number of rows
@@ -243,9 +258,17 @@ df.head(2)
 
 </div>
 
+<br/>
 
+<br/>
 
 Tip : Use tail() to get last rows, head(-n) to get (#rows - n) observations 
+
+<br/>
+
+<br/>
+
+Short summary of the data
 
 ```python
 #Get the description of all numeric columns
@@ -312,16 +335,34 @@ df.describe()
     </tr>
   </tbody>
 </table>
+
 </div>
 
+<br/>
+
+<br/>
+
+**One Shot**
+
+> shape  
+> columns  
+> head()  
+> tail()  
+> describe() 
+
+<br/>
+
+<br/>
 
 #### Subsetting & Indexing
 
 Chasing for the required columns and rows we want, is the daily routine. Let's see how it is done  
 As I see it there are 3 main ways we subset i.e. Index, Name and Logical.In python we will be using two functions for this
 
-> loc - works using labels
+> loc - works using labels  
 > iloc -  works using position - only integers
+
+<br/>
 
 
 
@@ -428,7 +469,7 @@ df.iloc[[0,1,2],:] # [0,1,2] is a list
 
 </div>
 
-
+<br/>
 
 ```python
 df.iloc[0:3,:] # Note not 0:2 we're using 0:3
@@ -507,13 +548,15 @@ df.iloc[0:3,:] # Note not 0:2 we're using 0:3
 
 </div>
 
-
+<br/>
 
 Note: Another way to do whatever we've done before is
 
-> df.iloc[0]
-> df.iloc[[0,1,2]]
+> df.iloc[0]  
+> df.iloc[[0,1,2]]  
 > df.iloc[0:3]
+
+<br/>
 
 Now Let's subset the columns
 
@@ -649,12 +692,12 @@ df.iloc[0:3][['Year','Sport']] # OR df[['Year','Sport']].iloc[0:3] (potayto, pot
 
 </div>
 
+<br/>
 
-
-Ohh we're done with most of the subsetting,we haven't used **loc** function. May be we just don't need it. Hmmm, Let's see Can we use **loc** to do what we've done just
+Ohh we're done with most of the subsetting, we haven't used **loc** function. May be we just don't need it. Hmmm, Let's see Can we use **loc** to do what we've done just now
 
 ```python
-df.loc[0:3,['Year','Sport']] # Just note that when we used 0:3 we got more than when using iloc
+df.loc[0:3,['Year','Sport']] # Just note that when we used 0:3 we got more rows than when used iloc
 ```
 
 
@@ -713,10 +756,12 @@ df.loc[0:3,['Year','Sport']] # Just note that when we used 0:3 we got more than 
 
 
 
-Yeah we can, but there is just one catch. As i said at the start loc works with _labels_. They are the column names and row names (or Indexes). Let's see what that means
+Yeah we can, but there is just one catch. As i said at the start loc works with _labels_.  
+
+Labels are the column names and row names (or Indexes). Let's see what that means
 
 ```python
-df.columns
+df.columns #Column names
 ```
 
 
@@ -725,12 +770,13 @@ df.columns
 Index(['Year', 'City', 'Sport', 'Discipline', 'NOC', 'Event', 'Event gender',
        'Medal'],
       dtype='object')
+
 ```
 
-
+<br/>
 
 ```python
-df.index
+df.index #Row names
 ```
 
 
@@ -738,11 +784,12 @@ df.index
 ```
 RangeIndex(start=0, stop=2311, step=1)
 
+
 ```
 
 
 
-There is mostly no problem with column labels, the problem is with row labels. ALthough in most of the cases the row labels are just a range of numbers from 0 to #rows, in some cases they are not.
+There is mostly no problem with column labels, the problem is with row labels. Although in most of the cases the row labels are just a range of numbers from 0 to #rows, in some cases they are not.
 
 To check this we'will take a subset of data and change their row labels or Indexes.
 
@@ -758,7 +805,7 @@ df1.shape
 
 ```
 
-
+<br/>
 
 ```python
 df1.index
@@ -769,9 +816,10 @@ df1.index
 ```
 RangeIndex(start=0, stop=5, step=1)
 
+
 ```
 
-
+<br/>
 
 ```python
 df1.loc[0:3,]
@@ -793,6 +841,7 @@ df1.loc[0:3,]
 .dataframe thead th {
     text-align: right;
 }
+
 
 ```
 
@@ -862,7 +911,7 @@ df1.loc[0:3,]
 
 </div>
 
-
+<br/>
 
 Let's change the index and run the same command.
 
@@ -875,6 +924,7 @@ df1.index
 
 ```
 Int64Index([0, 33, 11, 44, 3], dtype='int64')
+
 
 ```
 
@@ -896,6 +946,7 @@ df1.loc[0:3,]
 .dataframe thead th {
     text-align: right;
 }
+
 
 ```
 
@@ -978,4 +1029,24 @@ df1.loc[0:3,]
 
 
 
-As we can see in the output, it is giving the result till the label.
+As we can see in the output, it is subsetting the data till it finds the corresponding label.
+
+<br/>
+
+**One Shot**
+
+> ```df.loc[0]  ```  						 	One Row  
+>
+> ```df.loc[[1,3,4]]  ```					 Selective Rows  
+>
+> ```df.loc[0:3] ```   						 Consecutive Rows  
+>
+>  
+>
+> ```df['Year']``` 						 One Column  
+>
+> ```df[['Year','Sport']]``` 				  Selective Columns  
+>
+> ```df.loc[,'Year':'Sport']```  			  Consecutive Columns  
+>
+> ``` df.iloc[0:3][['Year','Sport']]```	   Rows and columns
