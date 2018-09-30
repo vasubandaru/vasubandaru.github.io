@@ -84,7 +84,7 @@ Index(['Year', 'City', 'Sport', 'Discipline', 'NOC', 'Event', 'Event gender',
       dtype='object')
 ```
 
-Returns an index with column names
+Columns returns an index of column names
 
 <br/>
 
@@ -346,8 +346,8 @@ df.describe()
 
 #### Subsetting & Indexing
 
-Chasing for the required columns and rows we want, is the daily routine. Let's see how it is done  
-As I see it there are 3 main ways we subset i.e. Index, Name and Logical.In python we will be using two functions for this
+Chasing for the required columns and rows we want, is the daily routine. As I see it there are 3 main ways we subset i.e. Index, Name and Logical.  
+In python we will be using two functions for this
 
 > loc - works using labels  
 > iloc -  works using position - only integers
@@ -380,7 +380,7 @@ Name: 0, dtype: object
 
 
 This returns a single row as a Series(?)  
-When you want multiple rows, you specify the required position as a list(?) or range. How?
+When you want multiple rows, you specify the required positions as a list(?) or range.
 
 ```python
 df.iloc[[0,1,2],:] # [0,1,2] is a list
@@ -461,11 +461,11 @@ df.iloc[[0,1,2],:] # [0,1,2] is a list
 
 <br/>
 
+Using a range of numbers
+
 ```python
 df.iloc[0:3,:] # Note not 0:2 we're using 0:3
 ```
-
-
 
 <div>
 <style scoped>
@@ -540,7 +540,7 @@ df.iloc[0:3,:] # Note not 0:2 we're using 0:3
 
 <br/>
 
-Note: Another way to do whatever we've done before is
+**Note:** Another way to do whatever we've done before is
 
 > df.iloc[0]  
 > df.iloc[[0,1,2]]  
@@ -617,7 +617,7 @@ df.iloc[0:3,0:3] # To select the first 3 columns and first 3 rows
 
 
 
-But we won't be using column numbers most of the times, we use names. So how do we do it
+But we won't be using column numbers most of the times, we use column names. So how do we do it
 
 ```python
 df['Year'] #Single Column
@@ -684,7 +684,7 @@ df.iloc[0:3][['Year','Sport']] # OR df[['Year','Sport']].iloc[0:3] (potayto, pot
 
 <br/>
 
-Ohh we're done with most of the subsetting, we haven't used **loc** function. May be we just don't need it. Hmmm, Let's see Can we use **loc** to do what we've done just now
+Oh we're done with most of the subsetting, we haven't used **loc** function. May be we just don't need it. Hmmm, Let's see can we use **loc** to do what we've done just now
 
 ```python
 df.loc[0:3,['Year','Sport']] # Just note that when we used 0:3 we got more rows than when used iloc
@@ -748,7 +748,7 @@ df.loc[0:3,['Year','Sport']] # Just note that when we used 0:3 we got more rows 
 
 Yeah we can, but there is just one catch. As i said at the start loc works with _labels_.  
 
-Labels are the column names and row names (or Indexes). Let's see what that means
+Labels are the column names and row names (or Indexes). Let's see what that means.
 
 ```python
 df.columns #Column names
@@ -775,11 +775,10 @@ df.index #Row names
 RangeIndex(start=0, stop=2311, step=1)
 ```
 
+There is generally no problem, when we're subsetting columns labels using loc. The problem is with row labels. Although in most of the cases the row labels (Index) are just a numbers from 0 to #rows, in some cases they are not.  
 
+To check this we'will take a subset of data and change their row labels and see how that effects our results.  
 
-There is mostly no problem with column labels, the problem is with row labels. Although in most of the cases the row labels are just a range of numbers from 0 to #rows, in some cases they are not.
-
-To check this we'will take a subset of data and change their row labels or Indexes.
 
 ```python
 df1 = df.iloc[0:5]
@@ -1014,8 +1013,7 @@ df1.loc[0:3,]
 </div>
 
 
-
-As we can see in the output, it is subsetting the data till it finds the corresponding label.
+As we can see in the output, it is subsetting the data till it finds the corresponding label. i.e. after we changed the row labels, now in the new data the label 3 occurs in the 5th row. So, it prints 5 rows
 
 <br/>
 
@@ -1288,3 +1286,5 @@ df_sub.head()
 
 
 I think you got the gist of subsetting .
+
+We will be continuing our learning in the next part, which will be ready soon
